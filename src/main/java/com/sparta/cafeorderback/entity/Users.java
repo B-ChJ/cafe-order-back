@@ -31,4 +31,11 @@ public class Users extends Timestamped {
 
 	@Version
 	private Long version;
+
+	public void chargePoint(Long amount) {
+		if (amount <= 0) {
+			throw new IllegalArgumentException("충전할 금액은 0보다 커야 합니다.");
+		}
+		this.point += amount;
+	}
 }
