@@ -1,0 +1,14 @@
+package com.sparta.cafeorderback.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderEvent {
+    private List<OrderItemEvent> orderItems;
+}
