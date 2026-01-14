@@ -38,7 +38,7 @@ public class MenuRankingScheduler {
         // 1. 최근 3일간의 랭킹 데이터를 합산
         List<String> dateKeys = new ArrayList<>();
         LocalDate today = LocalDate.now();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 7; i++) {
             dateKeys.add(RANKING_KEY_PREFIX + today.minusDays(i).format(DateTimeFormatter.ISO_LOCAL_DATE));
         }
 
