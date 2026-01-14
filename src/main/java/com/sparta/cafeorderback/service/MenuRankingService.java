@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class MenuRankingService {
 
   private static final String RANKING_KEY_PREFIX = "menu:ranking:";
-  private static final long KEY_EXPIRATION_DAYS = 4;
+  private static final long KEY_EXPIRATION_DAYS = 8;
   private final StringRedisTemplate stringRedisTemplate;
   private final MenuRepository menuRepository;
   private final ObjectMapper objectMapper;
