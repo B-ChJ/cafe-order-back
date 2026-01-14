@@ -40,4 +40,12 @@ public class Order extends Timestamped {
         this.orderItems.add(orderItem);
         orderItem.setOrder(this);
     }
+
+    public void setTotalPrice(Long totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

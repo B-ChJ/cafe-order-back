@@ -3,11 +3,9 @@ package com.sparta.cafeorderback.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor
 @Table(name = "orderitems")
 public class OrderItem extends Timestamped {
@@ -33,5 +31,9 @@ public class OrderItem extends Timestamped {
         this.menu = menu;
         this.price = menu.getPrice();
         this.quantity = quantity;
+    }
+
+    void setOrder(Order order) {
+        this.order = order;
     }
 }

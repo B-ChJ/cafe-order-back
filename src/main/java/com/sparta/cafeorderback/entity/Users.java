@@ -15,20 +15,46 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 @NoArgsConstructor
 public class Users extends Timestamped {
-	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long id;
 
-	private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-	@Column(unique=true, nullable=false)
-	private String email;
+  private String name;
 
-	@Column(nullable=false)
-	private String password;
+  @Column(unique = true, nullable = false)
+  private String email;
 
-	private Long point = 0L;
+  @Column(nullable = false)
+  private String password;
 
-	@Version
-	private Long version;
+  private Long point = 0L;
+
+  @Version
+  private Long version;
+
+  public Users(String name, String email, String password) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+    this.point = 0L;
+    this.version = 0L;
+  }
+
+  public void chargePoint(Long amount) {
+    if (amount <= 0) {
+      throw new IllegalArgumentException("충전할 금액은 0보다 커야 합니다.");
+    }
+    this.point += amount;
+  }
+
+  public void reducePoint(Long amount) {
+    if (amount <= 0) {
+      throw new IllegalArgumentException("차감할 금액은 0보다 커야 합니다.");
+    }
+    if (this.point < amount) {
+      throw new IllegalArgumentException("포인트가 부족합니다.");
+    }
+    this.point -= amount;
+  }
 }
